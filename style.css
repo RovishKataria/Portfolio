@@ -260,6 +260,49 @@ p{
 #hero h1:nth-child(3) span{
     animation-delay: 2.5s;
 }
+
+/* Hero subtitle and description */
+.hero-subtitle {
+    color: #f0f0f0 !important;
+    font-size: 1.8rem !important;
+    margin: 20px 0 10px 0 !important;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 3.5s;
+}
+
+.hero-description {
+    color: #cccccc !important;
+    font-size: 1.6rem !important;
+    margin: 10px 0 30px 0 !important;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 4s;
+}
+
+/* CTA Secondary Button */
+.cta.cta-secondary {
+    background-color: transparent;
+    border: 2px solid #f0f0f0;
+    color: #f0f0f0;
+    margin-left: 20px;
+}
+
+.cta.cta-secondary:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /* End Hero Section */
 
 /* Service Section */
@@ -295,7 +338,15 @@ p{
     position: relative;
     z-index: 1;
     overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
+
+#services .service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
 #services .service-item::after{
     content: '';
     position: absolute;
@@ -306,21 +357,45 @@ p{
     background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
     opacity: .9;
     z-index: -1;
+    transition: all 0.3s ease;
 }
+
+#services .service-item:hover::after {
+    background-image: linear-gradient(60deg, #1a1a2e 0%, #16213e 100%);
+}
+
 #services .service-bottom .icon{
     height: 80%;
     width: 80%;
     margin-bottom: 20px;
+    transition: transform 0.3s ease;
 }
+
+#services .service-item:hover .icon {
+    transform: scale(1.1);
+}
+
 #services .service-item h2{
     font-size: 2rem;
     color: white;
     margin-bottom: 10px;
     text-transform: uppercase;
+    transition: color 0.3s ease;
 }
+
+#services .service-item:hover h2 {
+    color: crimson;
+}
+
 #services .service-item p{
     color: white;
     text-align: left;
+    transition: all 0.3s ease;
+}
+
+#services .service-item:hover p {
+    color: #f0f0f0;
+    transform: translateY(-5px);
 }
 /* End Service Section */
 
@@ -395,6 +470,32 @@ p{
 #projects .project-item:hover .project-image img{
     transform: scale(1.1);
 }
+
+/* Project Links */
+.project-links {
+    margin-top: 15px;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: crimson;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.project-link:hover {
+    background-color: #fff;
+    color: crimson !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 /* End Projects Section */
 
 /* About Section */
@@ -442,6 +543,32 @@ p{
     width: 98%;
     border: 7px solid crimson;
     z-index: -1;
+}
+
+/* About Section Highlights */
+.education-highlight, .experience-highlight {
+    background: linear-gradient(45deg, rgba(220, 20, 60, 0.1), rgba(0, 0, 0, 0.05));
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 4px solid crimson;
+    border-radius: 5px;
+}
+
+.education-highlight h3, .experience-highlight h3 {
+    color: crimson;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.education-highlight p, .experience-highlight p {
+    text-align: left;
+    line-height: 1.8;
+}
+
+.education-highlight strong, .experience-highlight strong {
+    color: #333;
+    font-weight: 600;
 }
 /* End About Section */
 
@@ -589,6 +716,71 @@ p{
         font-weight: 500px;
     }
 }
+/* Smooth scrolling enhancement */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading animation for images */
+img {
+    transition: opacity 0.3s ease;
+}
+
+img:not([src]) {
+    opacity: 0;
+}
+
+/* Enhanced hover effects for social icons */
+#footer .social-item {
+    transition: transform 0.3s ease;
+}
+
+#footer .social-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Pulse animation for CTA buttons */
+.cta {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.cta:hover::before {
+    left: 100%;
+}
+
+/* Enhanced project item animations */
+#projects .project-item {
+    transition: all 0.3s ease;
+}
+
+#projects .project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Improved contact item hover effects */
+#contact .contact-item {
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+#contact .contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+}
+
 /* End keyframes */
 /* Media Query for tablet */
 @media only screen and (min-width: 768px){
